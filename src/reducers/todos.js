@@ -5,7 +5,9 @@ const todos = (state = [], action) => {
         ...state,
         {
           id: action.id,
-          text: action.text,
+          name: action.name,
+          description: action.description,
+          targetCompletionDate: action.targetCompletionDate,
           completed: false
         }
       ]

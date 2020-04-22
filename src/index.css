@@ -1,13 +1,53 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1, .filterTodos {
+  text-align:center;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.todo {
+  border:1px solid black;
+  width:30%;
+  float:left;
+  margin:15px;
+}
+.todoContent{
+  padding:5px;
+}
+.todoName{
+  text-align: center;
+  font-weight:700;
+  padding:5px;
+  border-bottom:1px solid black;
+}
+.addTodos{
+  clear:both;
+  float:left;
+  margin:15px;
+}
+.todoActions .btn {
+  margin-top:10px;
+  font-size:14px;
+}
+.todoDate{
+  font-size:12px;
+  margin:0;
+}
+.markComplete{
+  float:right;
+}
+.formNames, .formFields{
+  float:left;
+}
+.formFields{
+  margin-left:30px;
+  width:182px;
+}
+.formFields input{
+  width:100%;
+}
+.formFields textarea{
+  margin-top:13px;
+}
+.targetCompletionDate{
+  margin-top:35px;
+}
+.addTodoBtn{
+  margin-top:10px;
 }
