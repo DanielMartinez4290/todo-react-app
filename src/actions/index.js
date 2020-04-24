@@ -1,3 +1,28 @@
+import configuration from '../aws-exports';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import { ListGuitars } from '../graphql';
+Amplify.configure({...configuration});
+
+
+/* Thunks */
+let products = [];
+export const fetchProducts = () => {
+  return dispatch => {
+    API.graphql(graphqlOperation(ListGuitars))
+      .then(response => {
+        products = response.data.listTodos.items;
+        dispatch(addProducts(products))
+      })
+      .catch(console.error);
+  }
+}
+
+/* Action Creators */
+export const addProducts = products => ({
+  type: 'ALL',
+  payload: products
+});
+
 let nextTodoId = 0
 export const addTodo = (name, description, targetCompletionDate) => ({
   type: 'ADD_TODO',
