@@ -5,7 +5,7 @@ h1, .filterTodos {
   border:1px solid black;
   width:30%;
   float:left;
-  margin:15px;
+  margin:2% 2% 2% 0;
 }
 .todoContent{
   padding:5px;
@@ -28,6 +28,9 @@ h1, .filterTodos {
 .todoDate{
   font-size:12px;
   margin:0;
+}
+.todoList{
+  padding-left:4%;
 }
 .markComplete{
   float:right;
