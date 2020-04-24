@@ -34,7 +34,7 @@ mutation CreateTodo(
 export const UpdateTodo = `
 mutation UpdateTodo(
     $id: ID!
-    $completed: String!
+    $completed: Boolean!
     $completionDate: String!
 ) {
   updateTodo(input:{
@@ -43,8 +43,8 @@ mutation UpdateTodo(
   completionDate: $completionDate
 }) {
   id
-  name
   completed
+  completionDate
 }
 }`;
 

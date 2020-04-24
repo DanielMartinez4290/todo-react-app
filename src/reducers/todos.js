@@ -18,17 +18,8 @@ const todos = (state = [], action) => {
       return state.map(todo =>
         todo.id === action.id ? { 
           ...todo, 
-          completed: false,
-          completionDate: action.payload.completedDate,
-        } : todo
-      )
-      
-    case 'TOGGLE_TODO':
-      return state.map(todo =>
-        todo.id === action.id ? { 
-          ...todo, 
-          completed: !todo.completed,
-          completionDate: moment(new Date()).format('MM/DD/YYYY')
+          completed: action.payload.completed,
+          completionDate: action.payload.completionDate
         } : todo
       )
     default:

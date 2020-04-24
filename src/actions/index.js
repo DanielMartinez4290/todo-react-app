@@ -62,18 +62,14 @@ export const removeTodoAction=(id)=>{
 export const updateTodoAction=(todo)=>{
   return{
       type: 'UPDATE_TODO',
-      payload: todo
+      payload: todo,
+      id: todo.id
   }
 }
 
 export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
   filter
-});
-
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
 });
 
 export const VisibilityFilters = {
