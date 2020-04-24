@@ -27,7 +27,8 @@ const AddTodo = ({ dispatch }) => {
           }
           
           // dispatch action
-          dispatch(addTodo(name.value, description.value, moment(completionDate).format('MM/DD/YYYY')));
+          let todoObject = {name: name.value, description: description.value, targetCompletionDate:moment(completionDate).format('MM/DD/YYYY')};
+          dispatch(addTodo(todoObject));
           name.value = description.value = '';
         }}
       >

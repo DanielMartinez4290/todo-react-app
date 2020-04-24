@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 
-const todos = (state = [], action) => {
+const todos = (state = [], action) => {  
   switch (action.type) {
     case 'ALL':
       return action.payload;
@@ -8,14 +8,21 @@ const todos = (state = [], action) => {
     case 'ADD_TODO':
       return [
         ...state,
-        {
-          id: action.id,
-          name: action.name,
-          description: action.description,
-          targetCompletionDate: action.targetCompletionDate,
-          completed: false
-        }
+        action.payload
       ]
+
+    case 'REMOVE_TODO':
+      return state.filter(item=> action.id !== item.id);  
+
+    case 'UPDATE_TODO':
+      return state.map(todo =>
+        todo.id === action.id ? { 
+          ...todo, 
+          completed: false,
+          completionDate: action.payload.completedDate,
+        } : todo
+      )
+      
     case 'TOGGLE_TODO':
       return state.map(todo =>
         todo.id === action.id ? { 

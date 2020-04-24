@@ -15,15 +15,24 @@ h1, .filterTodos {
   font-weight:700;
   padding:5px;
   border-bottom:1px solid black;
+  text-transform: capitalize;
 }
 .addTodos{
-  clear:both;
-  float:left;
-  margin:15px;
+  margin:20px 27%;
+  position:absolute;
+  bottom:0px;
+  z-index:100;
+  background-color:white;
+  width:73%;
 }
 .todoActions .btn {
   margin-top:10px;
   font-size:14px;
+}
+.todoDescription{
+  font-size:14px;
+  min-height:50px;
+  padding-left:5px;
 }
 .todoDate{
   font-size:12px;
@@ -31,6 +40,9 @@ h1, .filterTodos {
 }
 .todoList{
   padding-left:4%;
+  overflow:scroll;
+  height:310px;
+  padding-bottom:20px;
 }
 .markComplete{
   float:right;
@@ -47,9 +59,10 @@ h1, .filterTodos {
 }
 .formFields textarea{
   margin-top:13px;
+  height:80px;
 }
 .targetCompletionDate{
-  margin-top:35px;
+  margin-top:67px;
 }
 .addTodoBtn{
   margin-top:10px;

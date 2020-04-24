@@ -1,5 +1,5 @@
-export const ListGuitars = `
-  query ListGuitars {
+export const ListTodos = `
+  query ListTodos {
     listTodos{
       items {
         id,
@@ -13,72 +13,58 @@ export const ListGuitars = `
   }
 `;
 
-export const ListGuitarsByCategory = `
-  query ListGuitars {
-    listGuitars(filter: {
-      category: {
-        contains: "Fender"
-      }
-    }, limit: 6)
-    {
-      items {
-        id,
-        name,
-        slug,
-        url,
-        price,
-        category
-      }
-    }
-  }
-`;
-
-export const CreateProduct = `
-mutation CreateProduct(
+export const CreateTodo = `
+mutation CreateTodo(
     $name: String!
-    $slug: String!
-    $url: String!
-    $price: Float!
-    $category: String!
+    $description: String!
+    $targetCompletionDate: String!
 ) {
-  createGuitar(input:{
+  createTodo(input:{
   name: $name,
-  slug: $slug,
-  url: $url,
-  price: $price,
-  category: $category
+  description: $description,
+  targetCompletionDate: $targetCompletionDate
 }) {
   id
   name
-  slug
-  url
-  price
-  category
+  description
+  targetCompletionDate
 }
 }`;
 
-export const GetProduct = `
-query GetGuitar($id: ID!) {
-  getGuitar(id: $id) {
+export const UpdateTodo = `
+mutation UpdateTodo(
+    $id: ID!
+    $completed: String!
+    $completionDate: String!
+) {
+  updateTodo(input:{
+  id: $id,
+  completed: $completed,
+  completionDate: $completionDate
+}) {
+  id
+  name
+  completed
+}
+}`;
+
+export const GetTodo = `
+query GetTodo($id: ID!) {
+  getTodo(id: $id) {
     id,
     name,
-    slug,
-    url,
-    price,
-    category
+    description
   }
 }
 `;
 
-export const GetProductByName = `
-query GetGuitarByName($slug: String!) {
-  getGuitarByName(slug: $slug) {
-    id,
-    name,
-    slug,
-    url,
-    price,
-    category
+export const DeleteTodo = `
+mutation DeleteTodo($id: ID!) {
+    deleteTodo(input:{id: $id}) {
+      id,
+      name,
+      description,
+      completed
+    }
   }
-}
 `;

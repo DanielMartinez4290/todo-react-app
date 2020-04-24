@@ -7,10 +7,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import App from './components/App';
-import { fetchProducts } from './actions';
+import { fetchTodos } from './actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-store.dispatch(fetchProducts());
+store.dispatch(fetchTodos());
 
 render(
   <Provider store={store}>

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = ({ onClick, completed, name, description, targetCompletionDate, completionDate }) =>{
+const Todo = ({ markActive, markComplete, removeTodo, completed, name, description, targetCompletionDate, completionDate }) =>{
 
   let markActiveComplete;
 
   if (!completed) {
-    markActiveComplete = <button onClick={onClick} className="btn btn-success">Mark Complete</button>;
+    markActiveComplete = <button onClick={markComplete} className="btn btn-success">Mark Complete</button>;
   } else {
-    markActiveComplete = <button onClick={onClick} className="btn btn-warning">Mark Active</button>;
+    markActiveComplete = <button onClick={markActive} className="btn btn-warning">Mark Active</button>;
   }
 
 return (
@@ -20,12 +20,12 @@ return (
   >
     <div className="todoName">{name}</div> 
     <section className="todoContent">
-      <p>{description}</p>
+      <p className="todoDescription">{description}</p>
       <p className="todoDate">Target Completion Date: {targetCompletionDate}</p>
       <p className="todoDate">Completion Date: {completionDate}</p>
       <div className="todoActions">
         <span className="deleteTodo"> 
-          <button className="btn btn-danger">
+          <button onClick={removeTodo} className="btn btn-danger">
               Delete
           </button>
         </span>
@@ -39,12 +39,15 @@ return (
 }
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   targetCompletionDate: PropTypes.string.isRequired,
-  completionDate: PropTypes.string
+  completionDate: PropTypes.string,
+  completed: PropTypes.bool,
+  removeTodo: PropTypes.func.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  markActive: PropTypes.func.isRequired
 }
 
 export default Todo;
