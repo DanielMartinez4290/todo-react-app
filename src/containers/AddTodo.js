@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo } from '../actions/todoActions';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as moment from 'moment';

@@ -1,20 +1,20 @@
-import * as moment from 'moment';
+import {ALL, ADD_TODO, REMOVE_TODO, UPDATE_TODO} from '../actions/todoActions';
 
 const todos = (state = [], action) => {  
   switch (action.type) {
-    case 'ALL':
+    case ALL:
       return action.payload;
     
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
         ...state,
         action.payload
       ]
 
-    case 'REMOVE_TODO':
+    case REMOVE_TODO:
       return state.filter(item=> action.id !== item.id);  
 
-    case 'UPDATE_TODO':
+    case UPDATE_TODO:
       return state.map(todo =>
         todo.id === action.id ? { 
           ...todo, 

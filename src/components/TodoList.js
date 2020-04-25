@@ -9,7 +9,11 @@ const TodoList = ({ todos, removeTodo, updateTodo }) => (
       <Todo 
         key={todo.id} {...todo} 
         removeTodo={() => removeTodo(todo.id)} 
-        markComplete={() => updateTodo({id:todo.id, completionDate:moment(new Date()).format('MM/DD/YYYY'),completed: true})} 
+        markComplete={() => updateTodo({
+          id:todo.id, 
+          completionDate:moment(new Date()).format('MM/DD/YYYY'),
+          completed: true
+        })} 
         markActive={() => updateTodo({id:todo.id, completionDate:' ',completed: false})} 
       />
     ))}
