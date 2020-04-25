@@ -18,9 +18,9 @@ h1, .filterTodos {
   text-transform: capitalize;
 }
 .addTodos{
-  margin:20px 27%;
+  margin:0 0 0 24%;
   position:absolute;
-  bottom:0px;
+  bottom:35px;
   z-index:100;
   background-color:white;
   width:73%;
@@ -41,14 +41,17 @@ h1, .filterTodos {
 .todoList{
   padding-left:4%;
   overflow:scroll;
-  height:310px;
+  height:390px;
   padding-bottom:20px;
 }
 .markComplete{
   float:right;
 }
-.formNames, .formFields{
+.formLeft, .formRight{
   float:left;
+}
+.formRight{
+  margin-left:15px;
 }
 .formFields{
   margin-left:30px;
@@ -57,13 +60,15 @@ h1, .filterTodos {
 .formFields input{
   width:100%;
 }
-.formFields textarea{
-  margin-top:13px;
-  height:80px;
+.formRight textarea{
+  height:85px;
+}
+.formDescription{
+  vertical-align: top;
 }
 .targetCompletionDate{
-  margin-top:67px;
+  margin:10px 0 0 0;
 }
 .addTodoBtn{
-  margin-top:10px;
+  margin-left:10px;
 }
