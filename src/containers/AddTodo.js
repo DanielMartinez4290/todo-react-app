@@ -34,17 +34,19 @@ const AddTodo = ({ dispatch }) => {
       >
         <div className="formLeft">
           <span>Name: <input ref={node => (name = node)} /> </span>
-          <p className="targetCompletionDate">Target Completion Date:</p>
-          <DatePicker
-            selected={completionDate}
-            onChange={date => setCompletionDate(date)}
-            customInput={<CustomDateInput ref={ref} />}
-          />
-          <button type="submit" className="btn btn-primary addTodoBtn">Add Todo</button>
         </div>
         <div className="formRight">
             <span className="formDescription">Description:</span>  <textarea ref={node => (description = node)} />
         </div>
+        <span className="targetCompletionDate">Target Completion Date:</span>
+        <span>
+        <DatePicker
+            selected={completionDate}
+            onChange={date => setCompletionDate(date)}
+            customInput={<CustomDateInput ref={ref} />}
+          />
+          </span>
+          <button type="submit" className="btn btn-primary addTodoBtn">Add Todo</button>
       </form>
     </div>
   )
