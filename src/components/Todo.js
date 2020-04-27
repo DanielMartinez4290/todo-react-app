@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 const Todo = ({ markActive, markComplete, removeTodo, completed, name, description, targetCompletionDate, completionDate }) =>{
 
-  let markActiveComplete;
+  let markActiveComplete, todoStatus;
 
   if (!completed) {
     markActiveComplete = <button onClick={markComplete} className="btn btn-success">Mark Complete</button>;
+    todoStatus = 'Active';
   } else {
     markActiveComplete = <button onClick={markActive} className="btn btn-warning">Mark Active</button>;
+    todoStatus = 'Completed';
   }
 
 return (
@@ -18,7 +20,7 @@ return (
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
-    <div className="todoName">{name}</div> 
+    <div className="todoName">{name} - <span className={`box ${completed ? "todoCompleted" : "todoActive"}`}>{todoStatus}</span></div> 
     <section className="todoContent">
       <p className="todoDescription">{description}</p>
       <p className="todoDate">Target Completion Date: {targetCompletionDate}</p>

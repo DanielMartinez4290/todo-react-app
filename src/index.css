@@ -28,6 +28,14 @@ h1, .filterTodos {
   margin-top:10px;
   font-size:14px;
 }
+.todoActive{
+  font-size:10px;
+  color:orange;
+}
+.todoCompleted{
+  font-size:10px;
+  color:green;
+}
 .todoDescription{
   font-size:14px;
   min-height:50px;

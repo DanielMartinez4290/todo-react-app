@@ -1,6 +1,8 @@
 import configuration from '../aws-exports';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import { ListTodos, CreateTodo, DeleteTodo, UpdateTodo} from '../graphql';
+import 'react-notifications/lib/notifications.css';
+import {NotificationManager} from 'react-notifications';
 Amplify.configure({...configuration});
 
 /* Action Types */
@@ -23,6 +25,7 @@ export const fetchTodos = () => {
   export const addTodo = (todo) => {
     return dispatch => {
       API.graphql(graphqlOperation(CreateTodo, todo)).then(response => {
+        NotificationManager.success('Todo Added');
         dispatch(addTodoAction(response.data.createTodo));
       })
       .catch(console.error);
@@ -32,6 +35,7 @@ export const fetchTodos = () => {
   export const updateTodo = (todo) => {
     return dispatch => {
       API.graphql(graphqlOperation(UpdateTodo, todo)).then(response => {
+        todo.completed ? NotificationManager.success('Todo Marked Complete') : NotificationManager.warning('Todo Marked Active');
         dispatch(updateTodoAction(response.data.updateTodo));
       })
       .catch(console.error);
@@ -41,6 +45,7 @@ export const fetchTodos = () => {
   export const removeTodo = (id) => {
     return dispatch => {
       API.graphql(graphqlOperation(DeleteTodo, {id})).then(response => {
+        NotificationManager.error('Todo Deleted');
         dispatch(removeTodoAction(response.data.deleteTodo.id));
       })
       .catch(console.error);
